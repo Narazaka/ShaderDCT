@@ -1,0 +1,12 @@
+{
+  "name": "net.narazaka.unity.shaderdct",
+  "version": "1.0.0",
+  "displayName": "ShaderDCT",
+  "description": "DCT(jpeg) compress/decompress by Shader",
+  "author": {
+    "name": "Narazaka",
+    "url": "https://github.com/Narazaka"
+  },
+  "type": "tool",
+  "url" : "https://github.com/Narazaka/ShaderDXT.git"
+}
