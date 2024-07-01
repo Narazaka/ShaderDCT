@@ -3,7 +3,7 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Q ("Q", Float) = 10
+        _Quality ("Quality", Int) = 85
     }
     SubShader
     {
@@ -29,13 +29,13 @@
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float4 _MainTex_TexelSize;
-            float _Q;
+            uint _Quality;
 
             #include "DCT.cginc"
 
             float4 frag(v2f_customrendertexture i) : SV_Target
             {
-                return Quantize(enDCT(PixelCoord(i.localTexcoord.xy)), _Q);
+                return float4(enDCT(PixelCoord(i.localTexcoord.xy), _Quality), 1.0);
             }
             ENDCG
         }

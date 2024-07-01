@@ -3,6 +3,7 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Quality ("Quality", Int) = 85
     }
     SubShader
     {
@@ -32,6 +33,7 @@
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float4 _MainTex_TexelSize;
+            uint _Quality;
 
             #include "DCT.cginc"
 
@@ -45,7 +47,7 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
-                return deDCT(PixelCoord(i.uv));
+                return float4(deDCT(PixelCoord(i.uv), _Quality), 1.0);
             }
             ENDCG
         }
